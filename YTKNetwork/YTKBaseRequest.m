@@ -202,6 +202,11 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
     return (statusCode >= 200 && statusCode <= 299);
 }
 
+- (BOOL)resultValidator
+{
+    return YES;
+}
+
 #pragma mark - NSObject
 
 - (NSString *)description {

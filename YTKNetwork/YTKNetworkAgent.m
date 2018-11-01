@@ -280,6 +280,14 @@
         }
         return result;
     }
+    //LYH通用校验
+    result = [request resultValidator];
+    if(!result){
+        if (error) {
+            *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:YTKRequestValidationErrorInvalidResult userInfo:@{NSLocalizedDescriptionKey:@"Invalid result"}];
+        }
+        return result;
+    }
     id json = [request responseJSONObject];
     id validator = [request jsonValidator];
     if (json && validator) {

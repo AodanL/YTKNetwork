@@ -583,4 +583,11 @@
     _manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
 }
 
+#pragma mark -----------------   mag   ----------------
+
+- (AFHTTPSessionManager* )sessionManager
+{
+    return _manager;
+}
+
 @end

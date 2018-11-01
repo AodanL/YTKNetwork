@@ -346,8 +346,17 @@
         succeed = NO;
         requestError = error;
     } else if (serializationError) {
-        succeed = NO;
-        requestError = serializationError;
+        /*
+         succeed = NO;
+         requestError = serializationError;
+         */
+        //忽略解析出错，交由validator统一处理 by zxg
+        succeed = [self validateResult:request error:&validationError];
+        if(validationError){
+            requestError = validationError;
+        }else{
+            requestError = serializationError;
+        }
     } else {
         succeed = [self validateResult:request error:&validationError];
         requestError = validationError;

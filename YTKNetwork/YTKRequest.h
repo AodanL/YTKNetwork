@@ -89,6 +89,7 @@ NS_ENUM(NSInteger) {
 
 ///mag support
 - (void)clearCacheVariables;
+- (BOOL)cacheFileExists;
 
 @end
 

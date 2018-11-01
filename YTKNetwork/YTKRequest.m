@@ -425,4 +425,18 @@ static dispatch_queue_t ytkrequest_cache_writing_queue() {
     return path;
 }
 
+/**
+ mag support
+ 检查是否有缓存
+ mag项目中缓存没有失效时间，因此只需检查是否有缓存文件即可
+ */
+- (BOOL)cacheFileExists
+{
+    NSString * cacheFilePath = [self cacheFilePath];
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    BOOL isDir = NO;
+    BOOL isExists = [fileManager fileExistsAtPath:cacheFilePath isDirectory:&isDir];
+    return (isExists && !isDir);
+}
+
 @end

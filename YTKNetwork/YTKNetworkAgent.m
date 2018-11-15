@@ -81,7 +81,8 @@
     if (!_jsonResponseSerializer) {
         _jsonResponseSerializer = [AFJSONResponseSerializer serializer];
         _jsonResponseSerializer.acceptableStatusCodes = _allStatusCodes;
-
+        //LYHNetwork
+        _jsonResponseSerializer.acceptableContentTypes = nil;
     }
     return _jsonResponseSerializer;
 }
